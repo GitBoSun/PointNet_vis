@@ -9,7 +9,8 @@ def vis_critical():
     points = out['points']  # 5,1024,3)
     hx = out['hx'].reshape(sample_num, 1024, 1024)  # (5,1024,1024)
 
-    cs_index = np.argmax(hx, axis = 2)#find which point contributed to max-pooling features
+    # Corrected the axis value to get critical point set
+    cs_index = np.argmax(hx, axis = 1)#find which point contributed to max-pooling features
     cs = []
 
     for i in range(sample_num):
